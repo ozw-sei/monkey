@@ -8,7 +8,7 @@ import (
 func textNextToken(t *testing.T) {
 	input := `=+(){},;`
 
-	test := []struct {
+	tests := []struct {
 		expectedType    token.TokenType
 		expectedLiteral string
 	}{
@@ -33,7 +33,7 @@ func textNextToken(t *testing.T) {
 		}
 
 		if tok.Literal != tt.expectedLiteral {
-			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q", i, tt.expectedLiteral, tt.Literal)
+			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q", i, tt.expectedLiteral, tok.Literal)
 		}
 	}
 }
