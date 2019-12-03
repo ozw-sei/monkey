@@ -3,25 +3,24 @@ package token
 type TokenType string
 
 type Token struct {
-	Type TokenType
+	Type    TokenType
 	Literal string
 }
 
 const (
-	
 	ILLEGAL = "ILLEGAL"
-	EOF = "EOF"
-	
+	EOF     = "EOF"
+
 	// 識別子
 	IDENT = "IDENT"
-	INT = "INT"
-	
+	INT   = "INT"
+
 	// Token
 	ASSIGN = "="
-	PLUS = "+"
-	
+	PLUS   = "+"
+
 	// デリミタ
-	COMMA = ","
+	COMMA     = ","
 	SEMICOLON = ";"
 
 	LPAREN = "("
@@ -29,7 +28,19 @@ const (
 	LBRACE = "{"
 	RBRACE = "}"
 
-
 	FUNCTION = "FUNCTION"
-	LET = "LET"
+	LET      = "LET"
 )
+
+var keywords = map[string]TokenType{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+func LookupIdent(ident string) TokenType {
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	}
+	return IDENT
+}
+
