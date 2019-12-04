@@ -18,6 +18,12 @@ const (
 	// Token
 	ASSIGN = "="
 	PLUS   = "+"
+	MINUS   = "-"
+	BANG = "!"
+	ASTERISK = "*"
+	SLASH = "/"
+	LT = "<"
+	GT = ">"
 
 	// デリミタ
 	COMMA     = ","
